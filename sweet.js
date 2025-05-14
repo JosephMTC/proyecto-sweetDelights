@@ -15,8 +15,10 @@ function cambiarVideo() {
     videos[nextIndex].onended = cambiarVideo;
 }
 
-videos[currentIndex].play();
-videos[currentIndex].onended = cambiarVideo;
+videos.forEach(v => v.pause());
+  videos[currentIndex].classList.add("active");
+  videos[currentIndex].play().catch(()=>{ /* fallback */ });
+  videos[currentIndex].onended = cambiarVideo;
 
 function playVideo(video) {
     const promise = video.play();
