@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body>
+    <header class="headerContainer">
+        <nav class="barraNavegacion">
+            <img src="/images/14Oct24_Nazzasi_Free_Upload_-removebg-preview.png" alt="Logo" class="logo">
+            <button class="hamburger" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+
+            <ul class="menuLista">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#acercade">Acerca De</a></li>
+                <li><a href="#contactos">Contactos</a></li>
+            </ul>
+        </nav>
+        <div class="productos-container">
+            <button class="boton-productos">
+                <img src="images/shopping-bag.png" alt="">
+            </button>
+            <button class="boton-productos">
+                <img src="images/user.png" alt="">
+            </button>
+        </div>
+    </header>
+    
+    <section class="video-container" id="inicio">
+        <video class="pastelVideo active" autoplay muted>
+            <source src="/video/4458581-uhd_4096_2160_24fps.mp4" type="video/mp4">
+        </video>
+        <video class="pastelVideo hidden" autoplay muted>
+            <source src="/video/4110047-hd_1920_1080_25fps.mp4" type="video/mp4">
+        </video>
+        <video class="pastelVideo hidden" autoplay muted>
+            <source src="/video/3326577-hd_1920_1080_24fps.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-overlay">
+            <h1 class="titulo">Sweet Delights</h1>
+            <p class="eslogan">"Endulzamos tus momentos más especiales"</p>
+        </div>
+
+        <div class="texto-titulo">
+            <h3 class="texto-h3">“Envíos disponibles en toda la ciudad.”</h1>
+            <p class="texto-p">“Abierto todos los días de 9:00 a.m. a 7:00 p.m.”</p>
+        </div>
+
+    </section>
+
+    <div class="lineaProductos" id="productos">
+        <div class="linea"></div>
+        <h2>Nuestros Productos</h2>
+        <div class="linea"></div>   
+    </div>
+    <section class="producto-container">
+        
+        <div class="container swiper" >
+            <div class="card-wrapper">
+                <ul class="card-list swiper-wrapper">
+                    <li class="card-item swiper-slide">
+                        <a href="" class="card-link">
+                            <img src="/imagenes/pexels-brunocurly-12118046.jpg" alt="" class="card-image">
+                            <p class="badge bruno">$12.99</p>
+                            <h2 class="card-title">Pastel de Chocolate</h2>
+                            <button class="card-button material-symbols-outlined">
+                                arrow_forward
+                            </button>
+                        </a>
+                    </li>
+                    <li class="card-item swiper-slide">
+                        <a href="" class="card-link">
+                            <img src="/imagenes/pexels-anete-lusina-15550425.jpg" alt="" class="card-image">
+                            <p class="badge anete">$4.99</p>
+                            <h2 class="card-title">Trufas de Chocolate</h2>
+                            <button class="card-button material-symbols-outlined">
+                                arrow_forward
+                            </button>
+                        </a>
+                    </li>
+                    <li class="card-item swiper-slide">
+                        <a href="" class="card-link">
+                            <img src="/imagenes/pexels-julias-torten-und-tortchen-434418-1179002.jpg" alt="" class="card-image">
+                            <p class="badge julias">$4.99</p>
+                            <h2 class="card-title">Cupcake de Vainilla</h2>
+                            <button class="card-button material-symbols-outlined">
+                                arrow_forward
+                            </button>
+                        </a>
+                    </li>
+                    <li class="card-item swiper-slide">
+                        <a href="" class="card-link">
+                            <img src="/imagenes/pexels-polina-tankilevitch-4110008.jpg" alt="" class="card-image">
+                            <p class="badge polina">$5.99</p>
+                            <h2 class="card-title">Rebanada de Chocolate</h2>
+                            <button class="card-button material-symbols-outlined">
+                                arrow_forward
+                            </button>
+                        </a>
+                    </li>
+                    <li class="card-item swiper-slide">
+                        <a href="" class="card-link">
+                            <img src="/imagenes/pexels-quang-nguyen-vinh-222549-2144200.jpg" alt="" class="card-image">
+                            <p class="badge quang">$14.99</p>
+                            <h2 class="card-title">Tarta de Mousse de Chocolate</h2>
+                            <button class="card-button material-symbols-outlined">
+                                arrow_forward
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-slide-button swiper-button-prev"></div>
+                <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    
+    <div class="background-img" id="acercade"></div>
+    <section id="acercaDe" class="acercaDe">
+        <div class="acercaDe-img">
+            <picture>
+                <img src="images/pexels-quang-nguyen-vinh-222549-2144200.jpg" 
+                    alt="Postres deliciosos" 
+                    loading="lazy"
+                    class="acercaDe-imagen">
+            </picture>
+        </div>
+        <article class="acercaDe-slider">
+            <div class="slides" role="region" aria-live="polite" aria-label="Información sobre Sweet Delights">
+                <div class="slide" role="group" aria-label="Slide 1 de 3 - Nuestra historia">
+                    
+                    <h2 style="font-size: 50px; text-shadow: 5px 5px 5px #802d4b;">La dulzura en cada bocado</h2>
+                    <p style="font-size: 20px; text-shadow: 5px 5px 5px #802d4b;" >Sweet Delights nació del amor por la repostería casera y el deseo de compartir momentos especiales con cada bocado. Desde nuestra apertura en 2010, hemos endulzado miles de celebraciones con postres artesanales y recetas únicas.</p>
+                </div>
+                <div class="slide" role="group" aria-label="Slide 2 de 3 - Nuestros valores">
+                    <h2 style="font-size: 50px; text-shadow: 5px 5px 5px #802d4b;">Nuestros Valores</h2>
+                    <ul style="font-size: 20px; text-shadow: 5px 5px 5px #802d4b;">
+                        <li><strong>Calidad:</strong> Utilizamos ingredientes frescos y naturales.</li>
+                        <li><strong>Pasión:</strong> Cada postre está hecho con dedicación y creatividad.</li>
+                        <li><strong>Innovación:</strong> Siempre buscamos sorprender con nuevos sabores y diseños.</li>
+                        <li><strong>Compromiso:</strong> Nos aseguramos de que cada cliente disfrute de un servicio excepcional.</li>
+                    </ul>
+                </div>
+                <div class="slide" role="group" aria-label="Slide 3 de 3 - Nuestra promesa">
+                    <h2 style="font-size: 40px; text-shadow: 5px 5px 5px #802d4b;">"Endulzamos tus momentos más especiales. Descubre nuestros sabores únicos y déjate sorprender."</h2>
+                </div>
+            </div>
+                <div class="dots" role="tablist" aria-label="Control deslizante"></div>
+                <div class="slider-arrows">
+                </div>
+        </article>
+    </section>
+    <div class="background-img"></div>
+
+
+    <footer class="footer" id="contactos">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Sweet Delights 🍰</h3>
+                <p>Pastelería artesanal con los sabores más dulces.</p>
+                <p><i class="fas fa-map-marker-alt"></i> Calle Dulce 123, Ciudad Pastel</p>
+                <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                <p><i class="fas fa-envelope"></i> contacto@sweetdelights.com</p>
+            </div>
+    
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#acercade">Acerca de</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div class="social-footer">
+                    <button class="boton-footer">
+                        <img src="images/instagram.png" alt="">
+                    </button>
+                    <button class="boton-footer">
+                        <img src="images/facebook-app-symbol.png" alt="">
+                    </button>
+                    <button class="boton-footer">
+                        <img src="images/twitter.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sweet Delights. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/script.js"></script>
+<script src="/sweet.js"></script>      
+</body>
+</html>

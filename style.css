@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Spectral:ital,wght@1,300&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.producto-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(#feecf5, #f9cefb);
+}
+
+
+.producto-container *{
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+.card-wrapper{
+    max-width: 1100px;
+    margin: 0 60px 35px;
+    padding: 20px 10px;
+    overflow: hidden;
+}
+
+.card-list .card-item{
+    list-style: none;
+}
+
+.card-list .card-item .card-link{
+    user-select: none;
+    display: block;
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+}
+
+.card-list .card-item .card-link:active{
+    cursor: grabbing;
+}
+
+.card-list .card-item .card-link:hover{
+    border-color: #FAD2E1;
+}
+
+.card-list .card-link .card-image{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-list .card-link .badge{
+    color: #000;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    margin: 16px 0 18px;
+    background: #f0bcda;
+    width: fit-content;
+    border-radius: 50px;
+    font-weight: 500;
+    width: fit-content;
+}
+
+
+.card-list .card-link .card-title{
+    font-size: 1.19rem;
+    color: #bd85c2;
+    font-weight: 660;
+}
+
+.card-list .card-link .card-button{
+    height: 35px;
+    width: 35px;
+    color: #FAD2E1;
+    border-radius: 50%;
+    margin: 30px 0 5px;
+    border: 2px solid #FAD2E1;
+    transform: rotate(-45deg);
+    cursor: pointer;
+    background: none;
+    transition: 0.4s ease;
+}
+
+
+.card-list .card-link:hover .card-button{
+    color: #fff;
+    background: #fa79a8;
+
+}
+
+.card-wrapper .swiper-pagination-bullet{
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: #fa79a8;
+}
+
+.card-wrapper .swiper-pagination-bullet{
+    opacity: 1;
+}
+
+.card-wrapper .swiper-slide-button{
+    color: #fa79a8;
+    margin-top: -35px;
+}
+
+@media screen and (max-width: 768px) {
+    .card-wrapper{
+        margin: 0 10px 25px;
+    }
+
+    .card-wrapper .swiper-slide-button{
+        display: none;
+    }
+}
