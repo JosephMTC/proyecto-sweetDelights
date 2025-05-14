@@ -532,10 +532,10 @@ body{
 }
 
 .background-img {
-    background-image: url('/images/shape-header3.svg');
+    background-image: url('images/shape-header3.svg');
     background-repeat: repeat-x; /* Repetición solo en el eje X (horizontal) */
     background-size: contain; /* Mantiene el tamaño original */
-    height: 50px; /* Ajusta la altura a lo que necesites */
+    height: 50px; 
     width: 100%; /* Que cubra todo el ancho */
     background-position: center;
 }
