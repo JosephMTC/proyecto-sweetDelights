@@ -3,15 +3,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const videos = document.querySelectorAll(".pastelVideo");
   let currentIndex = 0;
 
-  function playVideo(video) {
-    const promise = video.play();
-    if (promise !== undefined) {
-      promise.catch(error => {
-        console.warn("Autoplay bloqueado, intentando fallback");
-        video.currentTime = 0;
-      });
-    }
+function playVideo(video) {
+  video.muted = true; // refuerza que esté silenciado
+  const promise = video.play();
+  if (promise !== undefined) {
+    promise.catch(error => {
+      console.warn("Autoplay bloqueado, intentando fallback");
+      video.setAttribute("controls", "true");
+      video.currentTime = 0;
+    });
   }
+}
 
   function cambiarVideo() {
     videos[currentIndex].classList.remove("active");
