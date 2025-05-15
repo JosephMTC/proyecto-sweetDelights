@@ -4,14 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentIndex = 0;
 
   function playVideo(video) {
-    const promise = video.play();
-    if (promise !== undefined) {
-      promise.catch(error => {
-        console.warn("Autoplay bloqueado, intentando fallback");
-        video.currentTime = 0;
-      });
-    }
-  }
+   const promise = video.play();
+if (promise !== undefined) {
+  promise.catch(error => {
+    console.warn("Autoplay bloqueado, intentando fallback", error);
+    video.setAttribute("controls", "true");
+  });
+}
 
   function cambiarVideo() {
     videos[currentIndex].classList.remove("active");
