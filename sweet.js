@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const promise = video.play();
     if (promise !== undefined) {
       promise.catch(error => {
-        console.warn("Autoplay bloqueado, intentando fallback", error);
-        video.setAttribute("controls", "true");
+        console.warn("Autoplay bloqueado, intentando fallback");
+        video.currentTime = 0;
       });
     }
-  } // ← AQUÍ cerramos bien playVideo()
+  }
 
   function cambiarVideo() {
     videos[currentIndex].classList.remove("active");
