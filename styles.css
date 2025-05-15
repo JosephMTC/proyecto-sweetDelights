@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Spectral:ital,wght@1,300&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Playwrite+RO:wght@100..400&family=Spectral:ital,wght@1,300&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-* { outline: 1px solid red; }
 
 html {
     scroll-behavior: smooth;
@@ -576,6 +575,9 @@ body{
     .logo { position: absolute; left: 50%; bottom: 20px; }
     .menuLista { flex-wrap: wrap; gap: 15px; display: flex; }
     .menuLista a { font-size: 18px; }
+          .header-container{
+        position: static;
+    }
 
     .video-container { height: 60vh; }
     .titulo { font-size: 50px; padding: 20px; line-height: 0.3; }
@@ -611,6 +613,9 @@ body{
         gap: 10px;
         transform: translate(-70%);
     }
+          .header-container{
+        position: static;
+    }
   }
   @media (max-width: 480px) {
     .slide{
@@ -622,6 +627,9 @@ body{
     }
     body{
         margin: -1px;
+    }
+          .header-container{
+        position: static;
     }
 
 }
@@ -677,6 +685,10 @@ body{
     /* Al hacer toggle, mostramos la lista */
     .barraNavegacion.open .menuLista {
       display: flex;
+    }
+
+    .header-container{
+        position: static;
     }
   }
   
