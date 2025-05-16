@@ -689,6 +689,4 @@ body {
         position: static;
     }
   }
-  html, body, .video-container, .producto-container, .acercaDe {
-  width: 100%;
-}
+
