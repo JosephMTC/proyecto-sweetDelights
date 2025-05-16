@@ -548,7 +548,6 @@ body{
     .dot{display: none;}
     .boton-productos{
         gap: 10px;
-        transform: translate(-200%);
     }
 }
 
@@ -588,7 +587,7 @@ body{
     .producto-img, .producto { width: 100%; }
     .boton-productos{
         gap: 10px;
-        transform: translate(-200%);
+        ;
     }
     .acercaDe { padding: 0; }
     .acercaDe-slider{bottom: 50px; right: 50px;}
@@ -611,7 +610,7 @@ body{
     }
     .boton-productos{
         gap: 10px;
-        transform: translate(-70%);
+       ;
     }
           .header-container{
         position: static;
@@ -623,7 +622,7 @@ body{
     }
     .boton-productos{
         gap: 10px;
-        transform: translate(-70%);
+     ;
     }
     body{
         margin: -1px;
