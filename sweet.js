@@ -1,38 +1,110 @@
 // --- VIDEO ROTATION ---
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   const videos = document.querySelectorAll(".pastelVideo");
   let currentIndex = 0;
+  let userInteracted = false;
 
-function cambiarVideo() {
-    let nextIndex = (currentIndex + 1) % videos.length;
+  // Configuración inicial de videos
+  function setupVideos() {
+    videos.forEach((video, index) => {
+      video.muted = true;
+      video.playsInline = true;
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+      video.setAttribute('loop', '');
+      video.setAttribute('disablePictureInPicture', '');
+      
+      // Precargar videos
+      video.preload = "auto";
+      video.load();
+      
+      // Ocultar todos los videos excepto el primero
+      if (index !== 0) {
+        video.style.opacity = 0;
+        video.style.visibility = 'hidden';
+      }
+    });
+  }
 
-    videos[currentIndex].pause();
-    videos[currentIndex].classList.remove("active");
+  // Función para iniciar reproducción
+  function startVideoPlayback() {
+    if (!userInteracted) return;
+    
+    playVideo(videos[currentIndex]);
+    videos[currentIndex].classList.add("active");
+    videos[currentIndex].style.opacity = 1;
+    videos[currentIndex].style.visibility = 'visible';
+    videos[currentIndex].addEventListener('ended', cambiarVideo);
+  }
 
-    videos[nextIndex].classList.add("active");
-    videos[nextIndex].play();
+  // Función para cambiar de video
+  function cambiarVideo() {
+    const prevVideo = videos[currentIndex];
+    prevVideo.classList.remove("active");
+    prevVideo.style.opacity = 0;
+    prevVideo.style.visibility = 'hidden';
+    prevVideo.pause();
+    prevVideo.removeEventListener('ended', cambiarVideo);
 
-    currentIndex = nextIndex;
+    currentIndex = (currentIndex + 1) % videos.length;
+    const nextVideo = videos[currentIndex];
+    
+    nextVideo.currentTime = 0;
+    nextVideo.classList.add("active");
+    nextVideo.style.opacity = 1;
+    nextVideo.style.visibility = 'visible';
+    playVideo(nextVideo);
+    nextVideo.addEventListener('ended', cambiarVideo);
+  }
 
-    videos[nextIndex].onended = cambiarVideo;
-}
-
-videos[currentIndex].play();
-videos[currentIndex].onended = cambiarVideo;
-
-function playVideo(video) {
+  // Función para reproducir video con manejo de errores
+  function playVideo(video) {
+    if (!userInteracted) return;
+    
+    video.currentTime = 0;
     const promise = video.play();
+    
     if (promise !== undefined) {
-        promise.catch(error => {
-            // Fallback: Mostrar primer frame
-            video.currentTime = 0;
-            video.classList.add('active');
-        });
+      promise.catch(err => {
+        console.log("Autoplay bloqueado, intentando fallback");
+        video.muted = true;
+        video.play()
+          .then(() => {
+            video.style.opacity = 1;
+            video.style.visibility = 'visible';
+          })
+          .catch(e => console.log("Error al reproducir:", e));
+      });
     }
-}
+  }
 
-videos[currentIndex].classList.add('active');
-playVideo(videos[currentIndex]);
+  // Configurar eventos de interacción
+  function setupInteraction() {
+    const handleInteraction = () => {
+      userInteracted = true;
+      document.body.removeEventListener('click', handleInteraction);
+      document.body.removeEventListener('touchstart', handleInteraction);
+      startVideoPlayback();
+    };
+
+    document.body.addEventListener('click', handleInteraction);
+    document.body.addEventListener('touchstart', handleInteraction);
+    
+    // Iniciar automáticamente en desktop
+    if (!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      userInteracted = true;
+      setupVideos();
+      startVideoPlayback();
+    } else {
+      setupVideos();
+      // Mostrar mensaje para móviles si es necesario
+      // document.getElementById('play-message').style.display = 'block';
+    }
+  }
+
+  setupInteraction();
+});
   
 // --- ACERCA DE SLIDER ---
 document.addEventListener("DOMContentLoaded", function() {
