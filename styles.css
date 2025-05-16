@@ -96,9 +96,9 @@ html {
 /* ---- SECCIÓN DE VIDEO ---- */
 .video-container {
     width: 100%;
-    height: calc(100vh - var(--header-height, 60px));     
+     height: calc(100vh - var(--header-height, 60px));     
     position: relative;
-    overflow: hidden;
+
 }
 
 /* VIDEO */
@@ -191,8 +191,10 @@ html {
 
 /* VIDEO ACTIVO */
 .video-container video.active {
-    opacity: 1;
+     opacity: 1; 
 }
+
+video.pastelVideo.active {}
 
 .video-container video.active {
     opacity: 1;
@@ -554,6 +556,20 @@ html {
     }
 }
 
+@media (max-width: 1100px) {
+    .logo { height: 80px; left: 10%; bottom: 20px; }
+    .menuLista { gap: 30px; }
+    .menuLista a { font-size: 20px; }
+    .headerContainer { height: 80px; }
+    .titulo { font-size: 70px; padding: 30px; line-height: 80px; }
+    .eslogan { font-size: 20px; }
+    .texto-titulo { width: 70%; }
+    .productos { padding: 40px 15px; }
+    .acercaDe { flex-direction: column; }
+    .dot{display: none;}
+    .acercaDe-img, .acercaDe-slider { width: 100%; }
+    .acercaDe-slider { padding: 50px; }
+  }
 
 @media (max-width: 992px) {
     .logo { height: 80px; left: 50%; bottom: 20px; }
@@ -578,8 +594,8 @@ html {
     .menuLista { flex-wrap: wrap; gap: 15px; display: flex; }
     .menuLista a { font-size: 18px; }
 
-    .video-container { height: 60vh; }
-    .titulo { font-size: 50px; padding: 20px; line-height: 0.3; }
+    .video-container { height: 100vh; }
+    .titulo { font-size: 50px; padding: 20px; line-height: 0.9; }
     .eslogan { font-size: 18px;}
     .texto-titulo { top: 85%; width: 90%; }
   
@@ -643,7 +659,7 @@ html {
     height: 3px;
     background: #fff;
     border-radius: 2px;
-    transition: all 0.3s ease;
+    transition: all 0.9s ease;
   }
   
   .menuLista {
@@ -671,9 +687,11 @@ html {
       width: 140%;
       background: rgba(250, 226, 225, 0.95);
       flex-direction: column;
-      gap: 20px;
+      gap: 10px;
       padding: 20px 0;
       display: none;
+      text-align: center;
+        border-end-end-radius: 100px;
     }
     /* Al hacer toggle, mostramos la lista */
     .barraNavegacion.open .menuLista {
