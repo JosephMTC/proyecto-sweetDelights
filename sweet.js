@@ -3,68 +3,37 @@ document.addEventListener("DOMContentLoaded", function () {
   const videos = document.querySelectorAll(".pastelVideo");
   let currentIndex = 0;
 
-  // Configuración inicial de videos
-  videos.forEach(video => {
-    video.muted = true;
-    video.playsInline = true;
-    video.setAttribute('muted', '');
-    video.setAttribute('playsinline', '');
-    video.setAttribute('webkit-playsinline', '');
-    video.setAttribute('disablePictureInPicture', '');
-    video.setAttribute('loop', ''); // Añadido loop
-  });
+function cambiarVideo() {
+    let nextIndex = (currentIndex + 1) % videos.length;
 
-  function playVideo(video) {
-    // Nueva implementación más robusta
-    const playPromise = video.play();
-    
-    if (playPromise !== undefined) {
-      playPromise.catch(error => {
-        console.log("Autoplay prevented, attempting workaround");
-        video.muted = true;
-        video.play()
-          .then(_ => {
-            video.style.opacity = 1;
-            video.style.visibility = 'visible';
-          })
-          .catch(e => console.warn("Video play failed:", e));
-      });
+    videos[currentIndex].pause();
+    videos[currentIndex].classList.remove("active");
+
+    videos[nextIndex].classList.add("active");
+    videos[nextIndex].play();
+
+    currentIndex = nextIndex;
+
+    videos[nextIndex].onended = cambiarVideo;
+}
+
+videos[currentIndex].play();
+videos[currentIndex].onended = cambiarVideo;
+
+function playVideo(video) {
+    const promise = video.play();
+    if (promise !== undefined) {
+        promise.catch(error => {
+            // Fallback: Mostrar primer frame
+            video.currentTime = 0;
+            video.classList.add('active');
+        });
     }
-  }
+}
 
-  function cambiarVideo() {
-    const currentVideo = videos[currentIndex];
-    currentVideo.classList.remove("active");
-    currentVideo.style.opacity = 0;
-    currentVideo.style.visibility = 'hidden';
-    currentVideo.pause();
-
-    currentIndex = (currentIndex + 1) % videos.length;
-    const nextVideo = videos[currentIndex];
-
-    nextVideo.classList.add("active");
-    nextVideo.style.opacity = 1;
-    nextVideo.style.visibility = 'visible';
-
-    // Nueva precarga mejorada
-    nextVideo.load();
-    nextVideo.currentTime = 0;
-
-    playVideo(nextVideo);
-    
-    // Elimina el event listener anterior para evitar duplicados
-    nextVideo.removeEventListener('ended', cambiarVideo);
-    nextVideo.addEventListener('ended', cambiarVideo);
-  }
-
-  // Inicialización
-  videos[currentIndex].classList.add("active");
-  videos[currentIndex].style.opacity = 1;
-  videos[currentIndex].style.visibility = 'visible';
-  playVideo(videos[currentIndex]);
-  videos[currentIndex].addEventListener('ended', cambiarVideo);
-});
-
+videos[currentIndex].classList.add('active');
+playVideo(videos[currentIndex]);
+  
 // --- ACERCA DE SLIDER ---
 document.addEventListener("DOMContentLoaded", function() {
     const slides = document.querySelectorAll(".slide");
