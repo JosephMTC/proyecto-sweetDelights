@@ -8,26 +8,27 @@ function cambiarVideo() {
     videos[currentIndex].classList.remove("active");
 
     videos[nextIndex].classList.add("active");
-    videos[nextIndex].play();
+    videos[nextIndex].play().catch(() => {
+        videos[nextIndex].currentTime = 0;
+    });
 
     currentIndex = nextIndex;
 
     videos[nextIndex].onended = cambiarVideo;
 }
 
-videos[currentIndex].play();
-videos[currentIndex].onended = cambiarVideo;
-
-function playVideo(video) {
-    const promise = video.play();
-    if (promise !== undefined) {
-        promise.catch(error => {
-            // Fallback: Mostrar primer frame
+// Iniciar primer video solo si tiene .active
+videos.forEach((video, index) => {
+    if (index === 0) {
+        video.play().catch(() => {
             video.currentTime = 0;
-            video.classList.add('active');
         });
+        video.onended = cambiarVideo;
+    } else {
+        video.classList.remove("active");
     }
-}
+});
+
   
 // --- ACERCA DE SLIDER ---
 document.addEventListener("DOMContentLoaded", function() {
