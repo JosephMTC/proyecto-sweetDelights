@@ -5,7 +5,6 @@ html {
     scroll-behavior: smooth;
     overflow-x: hidden;
 }  
-* { outline: 1px solid #f00 !important; }
 
     body {
   margin: 0;
