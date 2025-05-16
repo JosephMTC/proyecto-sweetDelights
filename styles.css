@@ -5,12 +5,12 @@ html {
     scroll-behavior: smooth;
 }  
 
-body{
-    margin: 0;
-    background-color: #fff6fa;
-    min-height: 100vh;
-    overflow-x: hidden;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
 
 /* ---- HEADER ---- */
 .headerContainer {
@@ -94,7 +94,7 @@ body{
 /* ---- SECCIÓN DE VIDEO ---- */
 .video-container {
     width: 100%;
-    height: 100vh;     
+    height: calc(100vh - var(--header-height, 60px));     
     position: relative;
     overflow: hidden;
 }
@@ -690,4 +690,6 @@ body{
         position: static;
     }
   }
-  
+  html, body, .video-container, .producto-container, .acercaDe {
+  width: 100%;
+}
