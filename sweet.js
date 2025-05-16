@@ -6,12 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function playVideo(video) {
     const promise = video.play();
     if (promise !== undefined) {
-    promise.catch(error => {
-      console.warn("Autoplay bloqueado, intentando fallback", error);
-      // aquí podrías mostrar controles o pedir un click del usuario
-      video.setAttribute("controls", "true");
-    });
-  }
+      promise.catch(error => {
+        console.warn("Autoplay bloqueado, intentando fallback");
+        video.currentTime = 0;
+      });
+    }
   }
 
   function cambiarVideo() {
