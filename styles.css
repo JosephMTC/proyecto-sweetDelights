@@ -534,7 +534,7 @@ background: linear-gradient(0deg, rgba(240, 201, 226, 1) 0%, rgba(255, 227, 227,
     .dot{display: none;}
     .boton-productos{
         gap: 10px;
-        transform: translate(-200%);
+    
     }
 }
 
@@ -585,7 +585,6 @@ background: linear-gradient(0deg, rgba(240, 201, 226, 1) 0%, rgba(255, 227, 227,
     .producto-img, .producto { width: 100%; }
     .boton-productos{
         gap: 10px;
-        transform: translate(-200%);
     }
     .acercaDe { padding: 0; }
     .acercaDe-slider{bottom: 50px; right: 50px;}
@@ -608,7 +607,6 @@ background: linear-gradient(0deg, rgba(240, 201, 226, 1) 0%, rgba(255, 227, 227,
     }
     .boton-productos{
         gap: 10px;
-        transform: translate(-70%);
     }
   }
   @media (max-width: 480px) {
@@ -617,7 +615,6 @@ background: linear-gradient(0deg, rgba(240, 201, 226, 1) 0%, rgba(255, 227, 227,
     }
     .boton-productos{
         gap: 10px;
-        transform: translate(-70%);
     }
     body{
         margin: -1px;
