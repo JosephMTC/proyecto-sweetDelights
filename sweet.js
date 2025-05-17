@@ -1,7 +1,16 @@
-const videos = document.querySelectorAll(".pastelVideo");
-let currentIndex = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Seleccionar el fondo y detectar dispositivo
+  const background = document.querySelector('.video-background-color');
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-function cambiarVideo() {
+  // 2. Elegir los videos según el dispositivo
+  const videos = document.querySelectorAll(
+    isMobile ? ".video-mobile" : ".video-desktop"
+  );
+  let currentIndex = 0;
+
+  // 3. Función para cambiar de video
+  function cambiarVideo() {
     let nextIndex = (currentIndex + 1) % videos.length;
 
     videos[currentIndex].pause();
@@ -9,24 +18,37 @@ function cambiarVideo() {
 
     videos[nextIndex].classList.add("active");
     videos[nextIndex].play().catch(() => {
-        videos[nextIndex].currentTime = 0;
+      videos[nextIndex].currentTime = 0;
     });
 
     currentIndex = nextIndex;
-
     videos[nextIndex].onended = cambiarVideo;
-}
+  }
 
-// Iniciar primer video solo si tiene .active
-videos.forEach((video, index) => {
+  // 4. Iniciar reproducción del primer video (solo si tiene .active)
+  videos.forEach((video, index) => {
     if (index === 0) {
-        video.play().catch(() => {
-            video.currentTime = 0;
-        });
-        video.onended = cambiarVideo;
+      video.play().catch(() => {
+        video.currentTime = 0;
+      });
+      video.onended = cambiarVideo;
     } else {
-        video.classList.remove("active");
+      video.classList.remove("active");
     }
+  });
+
+  // 5. Forzar preload y ocultar fondo en móviles
+  if (isMobile && videos.length) {
+    const firstMobileVideo = videos[0];
+    firstMobileVideo.load();
+    firstMobileVideo.addEventListener("canplay", () => {
+      firstMobileVideo.classList.add("active");
+      if (background) {
+        // Sólo ocultamos el fondo una vez, al primer canplay
+        background.style.display = "none";
+      }
+    });
+  }
 });
 
   
